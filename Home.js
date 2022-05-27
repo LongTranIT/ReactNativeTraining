@@ -7,7 +7,7 @@
  */
 
 import { loadPartialConfigAsync } from '@babel/core';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -133,6 +133,9 @@ export default Home = () => {
                 console.error(error);
             });
     }
+
+    useEffect(getData,[]);
+
     return (
         <SafeAreaView style={styles.container}>
             <View >
@@ -190,7 +193,6 @@ export default Home = () => {
             </TouchableOpacity>
             <ScrollView
                 style={styles.scrollView}
-                onLayout={getData}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
